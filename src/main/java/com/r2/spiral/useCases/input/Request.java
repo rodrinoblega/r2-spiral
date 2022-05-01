@@ -4,9 +4,9 @@ public class Request {
     private final int rows;
     private final int cols;
 
-    public Request(String rows, String cols) {
-        this.rows = Integer.parseInt(rows);
-        this.cols = Integer.parseInt(cols);
+    public Request(int rows, int cols) {
+        this.rows = rows;
+        this.cols = cols;
     }
 
     public int getRows() {

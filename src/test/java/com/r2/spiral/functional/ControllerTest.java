@@ -34,4 +34,12 @@ public class ControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo("{\"fibonacciResponse\":[0,1,1,2]}")));
     }
+
+    @Test
+    void testSpiralControllerWithErrorCustomParams() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/spiral?rows=asd&cols=asd")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().is4xxClientError())
+                .andExpect(content().string(equalTo("{\"message\":\"Query params must be numeric\"}")));
+    }
 }
