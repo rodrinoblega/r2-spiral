@@ -6,14 +6,20 @@ import com.r2.spiral.useCases.input.Request;
 public class RequestParameterParser {
 
     public Request parse(String rows, String cols) {
+        int rowsInt = 0;
+        int colsInt = 0;
 
         try {
-            int rowsInt = Integer.parseInt(rows);
-            int colsInt = Integer.parseInt(cols);
-
-            return new Request(rowsInt, colsInt);
+            rowsInt = Integer.parseInt(rows);
+            colsInt = Integer.parseInt(cols);
         } catch (Exception e) {
             throw new RequestValidationException("Query params must be numeric");
         }
+
+        if (rowsInt <=0 || colsInt <=0) {
+            throw new RequestValidationException("Cols and rows must be > 0");
+        }
+
+        return new Request(rowsInt, colsInt);
     }
 }

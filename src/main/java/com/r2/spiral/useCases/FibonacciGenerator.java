@@ -3,6 +3,7 @@ package com.r2.spiral.useCases;
 import com.r2.spiral.useCases.input.Request;
 import com.r2.spiral.useCases.output.FibonacciGeneratorResponse;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,9 @@ public class FibonacciGenerator {
             fibonacci.add(valueUpdated);
         }
 
-        return new FibonacciGeneratorResponse(fibonacci);
+        String timestamp = String.valueOf(System.currentTimeMillis());
+
+        return new FibonacciGeneratorResponse(timestamp, fibonacci);
     }
 
     private int obtainCantNums(Request request) {

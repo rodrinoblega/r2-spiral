@@ -1,4 +1,4 @@
-package com.r2.spiral.frameworks.presenters.instrumentation;
+package com.r2.spiral.frameworks.instrumentation;
 
 import com.r2.spiral.configuration.Logging;
 import org.apache.logging.log4j.LogManager;

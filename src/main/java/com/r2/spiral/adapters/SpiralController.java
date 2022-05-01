@@ -33,7 +33,7 @@ public class SpiralController {
         instrumentation.track("Request: Rows: " + rows + " and cols: " + cols );
 
         FibonacciGeneratorResponse fibonacciGeneratorResponse = fibonacciGenerator.execute(request);
-        SpiralResponse spiralResponse = presenter.present(fibonacciGeneratorResponse);
+        SpiralResponse spiralResponse = presenter.present(fibonacciGeneratorResponse, request);
 
         instrumentation.track("Response: " + spiralResponse.toString() );
         return ResponseEntity.status(200).body(spiralResponse);

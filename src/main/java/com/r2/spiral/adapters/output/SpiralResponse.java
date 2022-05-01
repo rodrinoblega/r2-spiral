@@ -1,15 +1,16 @@
 package com.r2.spiral.adapters.output;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import java.util.List;
 
 @Getter
 @EqualsAndHashCode
 public class SpiralResponse {
 
-    private final List<Integer> fibonacciResponse;
+    private final String ts;
+    private final int[][] rows;
 
-    public SpiralResponse(List<Integer> fibonacciResponse) {
-        this.fibonacciResponse = fibonacciResponse;
+    public SpiralResponse(String ts, int[][] rows) {
+        this.ts = ts;
+        this.rows = rows;
     }
 }

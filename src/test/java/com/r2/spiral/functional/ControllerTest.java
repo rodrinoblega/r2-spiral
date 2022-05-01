@@ -8,7 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -28,11 +28,27 @@ public class ControllerTest {
     }
 
     @Test
-    void testSpiralController() throws Exception {
+    void testSpiral2rows2colsController() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/spiral?rows=2&cols=2")
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("{\"fibonacciResponse\":[0,1,1,2]}")));
+                .andExpect(content().string(containsString("\"rows\":[[0,1],[2,1]]")));
+    }
+
+    @Test
+    void testSpiral1rows4colsController() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/spiral?rows=1&cols=4")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("\"rows\":[[0,1,1,2]]")));
+    }
+
+    @Test
+    void testSpiral4rows1colsController() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/spiral?rows=4&cols=1")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("\"rows\":[[0],[1],[1],[2]]")));
     }
 
     @Test
