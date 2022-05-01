@@ -14,16 +14,24 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class PingControllerTest {
+public class ControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
-    void testSpiralController() throws Exception {
+    void testPingController() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/ping")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo("pong")));
+    }
+
+    @Test
+    void testSpiralController() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/spiral?rows=2&cols=2")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(equalTo("{\"fibonacciResponse\":[0,1,1,2]}")));
     }
 }
