@@ -2,8 +2,6 @@ package com.r2.spiral.useCases;
 
 import com.r2.spiral.useCases.input.Request;
 import com.r2.spiral.useCases.output.FibonacciGeneratorResponse;
-
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 

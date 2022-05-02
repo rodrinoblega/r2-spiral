@@ -8,6 +8,7 @@ import com.r2.spiral.useCases.FibonacciGenerator;
 import com.r2.spiral.useCases.input.Request;
 import com.r2.spiral.useCases.output.FibonacciGeneratorResponse;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,7 @@ public class SpiralController {
         this.instrumentation = instrumentation;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/spiral")
     public ResponseEntity<SpiralResponse> spiral(@RequestParam String rows, @RequestParam String cols) {
         Request request = requestParameterParser.parse(rows, cols);
