@@ -11,7 +11,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'jacoco'
 
 group 'org.r2'
-version '1.0-SNAPSHOT'
+version '2.0-SNAPSHOT'
 
 repositories {
     mavenCentral()

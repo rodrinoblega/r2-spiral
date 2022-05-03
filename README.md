@@ -15,6 +15,18 @@ This plugin was used in this project reaching 100% of coverage in the lines of c
 
 ![](static/test_coverage.png)
 
+## Docker
+
+You can run the app locally with Docker
+
+Build image:
+```docker build -t r2-spiral/backend .```
+
+Run image:
+
+```docker run -p 8080:8080 r2-spiral/backend```
+
+
 ## Service Diagram
 
 The architecture is based on the concept of clean architecture in wich we have Entities, useCases, adapters and frameworks
